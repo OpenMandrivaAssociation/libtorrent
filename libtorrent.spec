@@ -1,11 +1,12 @@
 %define major 10
 %define libname %mklibname torrent %major
+%define libnamedev %mklibname -d torrent
 %define release %mkrel 1
 #fixed2
 %{?!mkrel:%define mkrel(c:) %{-c: 0.%{-c*}.}%{!?_with_unstable:%(perl -e '$_="%{1}";m/(.\*\\D\+)?(\\d+)$/;$rel=${2}-1;re;print "$1$rel";').%{?subrel:%subrel}%{!?subrel:1}.%{?distversion:%distversion}%{?!distversion:%(echo $[%{mdkversion}/10])}}%{?_with_unstable:%{1}}%{?distsuffix:%distsuffix}%{?!distsuffix:mdk}}
 
 Name: libtorrent
-Version: 0.11.5
+Version: 0.11.6
 Release: %release
 Summary: LibTorrent is a BitTorrent library written in C++ for *nix
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
@@ -54,13 +55,14 @@ Authors:
 --------
     Jari Sundell <jaris@ifi.uio.no>
 
-%package -n %libname-devel
+%package -n %libnamedev
 Summary: LibTorrent is a BitTorrent library written in C++ for *nix
 Group: Development/C++
 Requires: %libname = %version
 Provides: %name-devel = %version-%release
+Obsoletes: %mklibname -d %name 10
 
-%description -n %libname-devel
+%description -n %libnamedev
 LibTorrent is a BitTorrent library written in C++ for *nix. It is designed to
 avoid redundant copying and storing of data that other clients and libraries
 suffer from. Licensed under the GPL.
@@ -100,7 +102,7 @@ export CXXFLAGS=$(echo %optflags|sed s/O2/O3/)
 %defattr(-,root,root)
 %{_libdir}/lib*.so.%{major}*
 
-%files -n %libname-devel
+%files -n %libnamedev
 %defattr(-,root,root)
 %{_libdir}/lib*.so
 %attr(644,root,root) %{_libdir}/lib*a
