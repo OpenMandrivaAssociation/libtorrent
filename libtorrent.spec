@@ -6,7 +6,7 @@
 %{?!mkrel:%define mkrel(c:) %{-c: 0.%{-c*}.}%{!?_with_unstable:%(perl -e '$_="%{1}";m/(.\*\\D\+)?(\\d+)$/;$rel=${2}-1;re;print "$1$rel";').%{?subrel:%subrel}%{!?subrel:1}.%{?distversion:%distversion}%{?!distversion:%(echo $[%{mdkversion}/10])}}%{?_with_unstable:%{1}}%{?distsuffix:%distsuffix}%{?!distsuffix:mdk}}
 
 Name: libtorrent
-Version: 0.11.8
+Version: 0.11.9
 Release: %release
 Summary: LibTorrent is a BitTorrent library written in C++ for *nix
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
@@ -16,7 +16,7 @@ URL: http://libtorrent.rakshasa.no/
 Source0: http://libtorrent.rakshasa.no/downloads/libtorrent-%{version}.tar.bz2 
 BuildRequires: sigc++2.0-devel
 BuildRequires: openssl-devel
-BuildRequires: automake1.8 libtool
+BuildRequires: automake libtool
 
 %description
 LibTorrent is a BitTorrent library written in C++ for *nix. It is designed to
@@ -108,5 +108,3 @@ export CXXFLAGS=$(echo %optflags|sed s/O2/O3/)
 %attr(644,root,root) %{_libdir}/lib*a
 %{_includedir}/torrent/
 %{_libdir}/pkgconfig/%{name}.pc
-
-
