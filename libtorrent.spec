@@ -9,6 +9,7 @@ Name: libtorrent
 Version: 0.11.9
 Release: %release
 Summary: LibTorrent is a BitTorrent library written in C++ for *nix
+BuildRoot: %{_tmppath}/%{name}-%{version}-build
 License: GPL
 Group: Networking/File transfer
 URL: http://libtorrent.rakshasa.no/
