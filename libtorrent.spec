@@ -1,19 +1,17 @@
-%define major 10
+%define major 11
 %define libname %mklibname torrent %major
 %define libnamedev %mklibname -d torrent
 %define release %mkrel 1
-#fixed2
-%{?!mkrel:%define mkrel(c:) %{-c: 0.%{-c*}.}%{!?_with_unstable:%(perl -e '$_="%{1}";m/(.\*\\D\+)?(\\d+)$/;$rel=${2}-1;re;print "$1$rel";').%{?subrel:%subrel}%{!?subrel:1}.%{?distversion:%distversion}%{?!distversion:%(echo $[%{mdkversion}/10])}}%{?_with_unstable:%{1}}%{?distsuffix:%distsuffix}%{?!distsuffix:mdk}}
 
 Name: libtorrent
-Version: 0.11.9
+Version: 0.12.0
 Release: %release
 Summary: LibTorrent is a BitTorrent library written in C++ for *nix
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 License: GPL
 Group: Networking/File transfer
 URL: http://libtorrent.rakshasa.no/
-Source0: http://libtorrent.rakshasa.no/downloads/libtorrent-%{version}.tar.bz2 
+Source0: http://libtorrent.rakshasa.no/downloads/libtorrent-%{version}.tar.gz
 BuildRequires: sigc++2.0-devel
 BuildRequires: openssl-devel
 BuildRequires: automake libtool
