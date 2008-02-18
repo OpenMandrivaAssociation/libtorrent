@@ -6,7 +6,7 @@
 Name: libtorrent
 Version: 0.12.0
 Release: %release
-Summary: LibTorrent is a BitTorrent library written in C++ for *nix
+Summary: BitTorrent library written in C++ for *nix
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 License: GPL
 Group: Networking/File transfer
@@ -33,7 +33,7 @@ Authors:
     Jari Sundell <jaris@ifi.uio.no>
 
 %package -n %libname
-Summary: LibTorrent is a BitTorrent library written in C++ for *nix
+Summary: BitTorrent library written in C++ for *nix
 Group: System/Libraries
 Provides: %name = %version-%release
 
@@ -54,7 +54,7 @@ Authors:
     Jari Sundell <jaris@ifi.uio.no>
 
 %package -n %libnamedev
-Summary: LibTorrent is a BitTorrent library written in C++ for *nix
+Summary: BitTorrent library written in C++ for *nix
 Group: Development/C++
 Requires: %libname = %version
 Provides: %name-devel = %version-%release
