@@ -1,7 +1,7 @@
 %define major 9
 %define libname %mklibname torrent %major
 %define libnamedev %mklibname -d torrent
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name: libtorrent
 Version: 0.12.2
