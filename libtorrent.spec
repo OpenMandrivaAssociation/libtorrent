@@ -8,10 +8,20 @@ Version: 0.12.2
 Release: %release
 Summary: BitTorrent library written in C++ for *nix
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
-License: GPL
+License: GPLv2+
 Group: Networking/File transfer
 URL: http://libtorrent.rakshasa.no/
 Source0: http://libtorrent.rakshasa.no/downloads/libtorrent-%{version}.tar.gz
+#gw gcc fixes from Gentoo
+Patch: libtorrent-0.12.0-gcc4.3.patch
+#gw Upstream bug fix patches fetche from Gentoo
+Patch1: libtorrent-0.12.2-dht_bounds_fix.patch
+Patch2: libtorrent-0.12.2-fix_cull.patch
+Patch3: libtorrent-0.12.2-fix_dht_target.patch
+Patch4: libtorrent-0.12.2-fix_have_timer.patch
+Patch5: libtorrent-0.12.2-fix_pex_leak.patch
+Patch6: libtorrent-0.12.2-fix_write_datagram.patch
+Patch7: libtorrent-0.12.2-tracker_timer_fix.patch
 BuildRequires: sigc++2.0-devel
 BuildRequires: openssl-devel
 BuildRequires: automake libtool
@@ -78,6 +88,14 @@ Authors:
 
 %prep
 %setup -q
+%patch -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
+%patch7 -p1
 
 %build
 #gw work around compiler bug according to the home page:
