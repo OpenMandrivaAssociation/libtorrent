@@ -1,7 +1,7 @@
 %define major 11
 %define libname %mklibname torrent %major
 %define libnamedev %mklibname -d torrent
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name: libtorrent
 Version: 0.12.5
@@ -83,7 +83,7 @@ Authors:
 #gw work around compiler bug according to the home page:
 export CFLAGS=$(echo %optflags|sed s/O2/O3/)
 export CXXFLAGS=$(echo %optflags|sed s/O2/O3/)
-%configure2_5x
+%configure2_5x --with-posix-fallocate
 %make
 
 %install 
