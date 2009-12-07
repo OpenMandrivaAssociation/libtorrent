@@ -1,10 +1,10 @@
 %define major 11
 %define libname %mklibname torrent %major
 %define libnamedev %mklibname -d torrent
-%define release %mkrel 2
+%define release %mkrel 1
 
 Name: libtorrent
-Version: 0.12.5
+Version: 0.12.6
 Release: %release
 Summary: BitTorrent library written in C++ for *nix
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
