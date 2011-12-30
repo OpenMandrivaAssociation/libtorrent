@@ -107,6 +107,5 @@ export CXXFLAGS=$(echo %optflags|sed s/O2/O3/)
 %files -n %libnamedev
 %defattr(-,root,root)
 %{_libdir}/lib*.so
-%attr(644,root,root) %{_libdir}/lib*a
 %{_includedir}/torrent/
 %{_libdir}/pkgconfig/%{name}.pc
