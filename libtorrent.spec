@@ -4,7 +4,7 @@
 %define release %mkrel 1
 
 Name: libtorrent
-Version: 0.12.9
+Version: 0.13.0
 Release: %release
 Summary: BitTorrent library written in C++ for *nix
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
