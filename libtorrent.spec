@@ -107,5 +107,8 @@ export CXXFLAGS=$(echo %optflags|sed s/O2/O3/)
 %files -n %libnamedev
 %defattr(-,root,root)
 %{_libdir}/lib*.so
+%if %mdvver <= 201100
+%{_libdir}/lib*.la
+%endif
 %{_includedir}/torrent/
 %{_libdir}/pkgconfig/%{name}.pc
