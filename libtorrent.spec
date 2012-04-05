@@ -15,7 +15,9 @@ Source0: http://libtorrent.rakshasa.no/downloads/libtorrent-%{version}.tar.gz
 Patch0: libtorrent-0.13.1-fix-linking.patch
 BuildRequires: sigc++2.0-devel
 BuildRequires: openssl-devel
-BuildRequires: automake libtool
+#gw only if autoconf/automake is called:
+BuildRequires: automake libtool cppunit-devel
+
 
 %description
 LibTorrent is a BitTorrent library written in C++ for *nix. It is designed to
