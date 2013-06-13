@@ -1,4 +1,4 @@
-%define major 14
+%define major 17
 %define libname %mklibname torrent %major
 %define libnamedev %mklibname -d torrent
 
