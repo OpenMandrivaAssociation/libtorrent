@@ -12,7 +12,7 @@ URL:		http://libtorrent.rakshasa.no/
 Source0:	http://libtorrent.rakshasa.no/downloads/libtorrent-%{version}.tar.gz
 Patch0:		libtorrent-0.13.1-fix-linking.patch
 BuildRequires:	sigc++2.0-devel
-BuildRequires: 	penssl-devel
+BuildRequires: 	openssl-devel
 #gw only if autoconf/automake is called:
 BuildRequires:	automake
 BuildRequires:	libtool
