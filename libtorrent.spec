@@ -18,6 +18,7 @@ BuildRequires: 	openssl-devel
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	cppunit-devel
+BuildRequires:  pkgconfig(zlib)
 
 %description
 LibTorrent is a BitTorrent library written in C++ for *nix. It is designed to
