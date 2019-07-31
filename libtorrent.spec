@@ -12,6 +12,8 @@ URL:		https://github.com/rakshasa/libtorrent
 Source0:	http://rtorrent.net/downloads/%{name}-%{version}.tar.gz
 #Source0:   https://github.com/rakshasa/rtorrent/releases/download/v0.9.7/libtorrent-0.13.7.tar.gz
 Patch0:		libtorrent-0.13.1-fix-linking.patch
+Patch1:		libtorrent-0.13.7-no-bogus--Lusrlib.patch
+Patch2:		libtorrent-0.13.7-openssl-1.1-patch
 BuildRequires:	sigc++2.0-devel
 BuildRequires: 	openssl-devel
 #gw only if autoconf/automake is called:
@@ -81,16 +83,14 @@ Authors:
     Jari Sundell <jaris@ifi.uio.no>
 
 %prep
-%setup -q
-%apply_patches
-
+%autosetup -p1
 autoreconf -fi
 
 %build
 #gw work around compiler bug according to the home page:
 export CFLAGS=$(echo %optflags|sed s/O2/O3/)
 export CXXFLAGS=$(echo %optflags|sed s/O2/O3/)
-%configure2_5x --with-posix-fallocate
+%configure --with-posix-fallocate
 %make
 
 %install 

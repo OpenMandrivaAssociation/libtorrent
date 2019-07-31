@@ -1,0 +1,33 @@
+diff -up libtorrent-0.13.7/configure.ac.omv~ libtorrent-0.13.7/configure.ac
+diff -up libtorrent-0.13.7/scripts/ax_check_zlib.m4.omv~ libtorrent-0.13.7/scripts/ax_check_zlib.m4
+--- libtorrent-0.13.7/scripts/ax_check_zlib.m4.omv~	2019-07-31 04:16:29.986488649 +0200
++++ libtorrent-0.13.7/scripts/ax_check_zlib.m4	2019-07-31 04:17:18.070076315 +0200
+@@ -22,7 +22,7 @@
+ #   If both header file and library are found, shell commands
+ #   'action-if-found' is run. If 'action-if-found' is not specified, the
+ #   default action appends '-I${ZLIB_HOME}/include' to CPFLAGS, appends
+-#   '-L$ZLIB_HOME}/lib' to LDFLAGS, prepends '-lz' to LIBS, and calls
++#   '-L${ZLIB_HOME}/lib' to LDFLAGS, prepends '-lz' to LIBS, and calls
+ #   AC_DEFINE(HAVE_LIBZ). You should use autoheader to include a definition
+ #   for this symbol in a config.h file. Sample usage in a C/C++ source is as
+ #   follows:
+@@ -104,10 +104,6 @@ then
+ 
+   ZLIB_OLD_LDFLAGS=$LDFLAGS
+   ZLIB_OLD_CPPFLAGS=$CPPFLAGS
+-  if test -n "${ZLIB_HOME}"; then
+-        LDFLAGS="$LDFLAGS -L${ZLIB_HOME}/lib"
+-        CPPFLAGS="$CPPFLAGS -I${ZLIB_HOME}/include"
+-  fi
+   AC_LANG_SAVE
+   AC_LANG_C
+   AC_CHECK_LIB([z], [inflateEnd], [zlib_cv_libz=yes], [zlib_cv_libz=no])
+@@ -119,8 +115,6 @@ then
+     # If both library and header were found, action-if-found
+     #
+     m4_ifblank([$1],[
+-                CPPFLAGS="$CPPFLAGS -I${ZLIB_HOME}/include"
+-                LDFLAGS="$LDFLAGS -L${ZLIB_HOME}/lib"
+                 LIBS="-lz $LIBS"
+                 AC_DEFINE([HAVE_LIBZ], [1],
+                           [Define to 1 if you have `z' library (-lz)])
