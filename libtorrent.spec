@@ -12,7 +12,6 @@ URL:		https://github.com/rakshasa/libtorrent
 Source0:	http://rtorrent.net/downloads/%{name}-%{version}.tar.gz
 #Source0:   https://github.com/rakshasa/rtorrent/releases/download/v0.9.7/libtorrent-0.13.7.tar.gz
 Patch0:		libtorrent-0.13.1-fix-linking.patch
-Patch1:     dh-openssl-1.1.patch
 BuildRequires:	sigc++2.0-devel
 BuildRequires: 	openssl-devel
 #gw only if autoconf/automake is called:
