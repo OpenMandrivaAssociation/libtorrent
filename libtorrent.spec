@@ -1,9 +1,9 @@
-%define major 20
+%define major 21
 %define libname %mklibname torrent %major
 %define libnamedev %mklibname -d torrent
 
 Name:		libtorrent
-Version:	0.13.7
+Version:	0.13.8
 Release:	1
 Summary:	BitTorrent library written in C++ for *nix
 License:	GPLv2+
@@ -13,7 +13,6 @@ Source0:	http://rtorrent.net/downloads/%{name}-%{version}.tar.gz
 #Source0:   https://github.com/rakshasa/rtorrent/releases/download/v0.9.7/libtorrent-0.13.7.tar.gz
 Patch0:		libtorrent-0.13.1-fix-linking.patch
 Patch1:		libtorrent-0.13.7-no-bogus--Lusrlib.patch
-Patch2:		libtorrent-0.13.7-openssl-1.1-patch
 BuildRequires:	sigc++2.0-devel
 BuildRequires: 	openssl-devel
 #gw only if autoconf/automake is called:
