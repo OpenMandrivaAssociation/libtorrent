@@ -2,6 +2,8 @@
 %define libname %mklibname torrent %major
 %define libnamedev %mklibname -d torrent
 
+%define _disable_lto 1
+
 Name:		libtorrent
 Version:	0.14.0
 Release:	1
@@ -82,12 +84,10 @@ Authors:
 
 %prep
 %autosetup -p1
-autoreconf -fi
 
 %build
-export CFLAGS="%optflags -fno-strict-aliasing"
-export CXXFLAGS="$CFLAGS"
-export CXXFLAGS="$CXXFLAGS -std=gnu++14"
+export CC=gcc
+export CXX=g++
 autoreconf -fiv
 %configure --enable-ipv6 --with-posix-fallocate
 %make_build
