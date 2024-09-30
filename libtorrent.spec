@@ -1,8 +1,8 @@
-%define major 21
+%define major 22
 %define libname %mklibname torrent %major
 %define libnamedev %mklibname -d torrent
 
-%define _disable_lto 1
+#define _disable_lto 1
 
 Name:		libtorrent
 Version:	0.14.0
@@ -86,8 +86,8 @@ Authors:
 %autosetup -p1
 
 %build
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 autoreconf -fiv
 %configure --enable-ipv6 --with-posix-fallocate
 %make_build
