@@ -3,17 +3,16 @@
 %define libnamedev %mklibname -d torrent
 
 Name:		libtorrent
-Version:	0.13.8
-Release:	2
+Version:	0.14.0
+Release:	1
 Summary:	BitTorrent library written in C++ for *nix
 License:	GPLv2+
 Group:		Networking/File transfer
 URL:		https://github.com/rakshasa/libtorrent
-Source0:	http://rtorrent.net/downloads/%{name}-%{version}.tar.gz
-#Source0:   https://github.com/rakshasa/rtorrent/releases/download/v0.9.7/libtorrent-0.13.7.tar.gz
-Patch0:		libtorrent-0.13.1-fix-linking.patch
-Patch1:		libtorrent-0.13.7-no-bogus--Lusrlib.patch
-BuildRequires:	sigc++2.0-devel
+#Source0:	https://rtorrent.net/downloads/%{name}-%{version}.tar.gz
+Source0:   https://github.com/rakshasa/rtorrent/releases/download/v%{version}/libtorrent-%{version}.tar.gz
+
+BuildRequires:	pkgconfig(sigc++-2.0)
 BuildRequires: 	pkgconfig(openssl)
 #gw only if autoconf/automake is called:
 BuildRequires:	automake
