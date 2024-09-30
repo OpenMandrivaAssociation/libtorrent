@@ -2,7 +2,7 @@
 %define libname %mklibname torrent %major
 %define libnamedev %mklibname -d torrent
 
-#define _disable_lto 1
+%define _disable_lto 1
 
 Name:		libtorrent
 Version:	0.14.0
