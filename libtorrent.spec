@@ -88,7 +88,7 @@ autoreconf -fi
 #gw work around compiler bug according to the home page:
 export CFLAGS=$(echo %optflags|sed s/O2/O3/)
 export CXXFLAGS=$(echo %optflags|sed s/O2/O3/)
-%configure --with-posix-fallocate --with-zlib=/usr/include/
+%configure --with-posix-fallocate --without-zlib
 %make_build
 
 %install 
