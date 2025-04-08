@@ -13,6 +13,7 @@ Group:		Networking/File transfer
 URL:		https://github.com/rakshasa/libtorrent
 #Source0:	https://rtorrent.net/downloads/%{name}-%{version}.tar.gz
 Source0:   https://github.com/rakshasa/rtorrent/releases/download/v%{version}/libtorrent-%{version}.tar.gz
+Patch0:    https://github.com/rakshasa/libtorrent/commit/9e05e0ad8794142ea6e3acf7d0e7757753fbc407.patch
 
 BuildRequires:	pkgconfig(sigc++-2.0)
 BuildRequires: 	pkgconfig(openssl)
