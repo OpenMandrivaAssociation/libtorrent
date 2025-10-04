@@ -20,6 +20,7 @@ BuildRequires: 	pkgconfig(openssl)
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	cppunit-devel
+BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(zlib)
 
 %description
