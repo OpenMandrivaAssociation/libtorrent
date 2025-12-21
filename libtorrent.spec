@@ -14,6 +14,9 @@ URL:		https://github.com/rakshasa/libtorrent
 #Source0:	https://rtorrent.net/downloads/%{name}-%{version}.tar.gz
 Source0:   https://github.com/rakshasa/rtorrent/releases/download/v%{version}/libtorrent-%{version}.tar.gz
 
+BuildRequires:	autoconf
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	pkgconfig(sigc++-2.0)
 BuildRequires: 	pkgconfig(openssl)
 #gw only if autoconf/automake is called:
