@@ -14,6 +14,7 @@ URL:		https://github.com/rakshasa/libtorrent
 #Source0:	https://rtorrent.net/downloads/%{name}-%{version}.tar.gz
 Source0:   https://github.com/rakshasa/rtorrent/releases/download/v%{version}/libtorrent-%{version}.tar.gz
 
+BuildRequires:  make
 BuildRequires:	autoconf
 BuildRequires:	libtool-base
 BuildRequires:	slibtool
