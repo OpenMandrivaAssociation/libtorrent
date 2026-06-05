@@ -6,7 +6,7 @@
 
 Name:		libtorrent
 Version:	0.16.10
-Release:	1
+Release:	2
 Summary:	BitTorrent library written in C++ for *nix
 License:	GPLv2+
 Group:		Networking/File transfer
