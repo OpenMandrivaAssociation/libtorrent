@@ -1,5 +1,6 @@
-%define major 40
-%define libname %mklibname torrent %major
+%define major 46
+%define oldlibname %mklibname torrent 40
+%define libname %mklibname torrent
 %define libnamedev %mklibname -d torrent
 
 #define _disable_lto 1
@@ -14,15 +15,17 @@ URL:		https://github.com/rakshasa/libtorrent
 #Source0:	https://rtorrent.net/downloads/%{name}-%{version}.tar.gz
 Source0:   https://github.com/rakshasa/rtorrent/releases/download/v%{version}/libtorrent-%{version}.tar.gz
 
+BuildSystem:	autotools
+BuildOption:	--enable-ipv6
+BuildOption:	--with-posix-fallocate
 BuildRequires:  make
 BuildRequires:	autoconf
-BuildRequires:	libtool-base
 BuildRequires:	slibtool
+BuildRequires:	atomic-devel
 BuildRequires:	pkgconfig(sigc++-2.0)
 BuildRequires: 	pkgconfig(openssl)
 #gw only if autoconf/automake is called:
 BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	cppunit-devel
 BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(zlib)
@@ -39,14 +42,11 @@ uses 1/4 of the CPU time that the official BitTorrent client requires.
 The library and client are under heavy development. They are stable enough to
 handle any torrents I throw at them these days. 
 
-Authors:
---------
-    Jari Sundell <jaris@ifi.uio.no>
-
 %package -n %{libname}
 Summary:	BitTorrent library written in C++ for *nix
 Group:		System/Libraries
-Provides: %{name} = %{version}-%{release}
+Provides:	%{name} = %{EVRD}
+Obsoletes:	%{oldlibname} < %{EVRD}
 
 %description -n %libname
 LibTorrent is a BitTorrent library written in C++ for *nix. It is designed to
@@ -60,15 +60,11 @@ uses 1/4 of the CPU time that the official BitTorrent client requires.
 The library and client are under heavy development. They are stable enough to
 handle any torrents I throw at them these days. 
 
-Authors:
---------
-    Jari Sundell <jaris@ifi.uio.no>
-
 %package -n %{libnamedev}
 Summary:	BitTorrent library written in C++ for *nix
 Group:		Development/C++
-Requires:	%{libname} = %{version}
-Provides:	%{name}-devel = %{version}-%{release}
+Requires:	%{libname} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
 Obsoletes:	%mklibname -d %name 10
 
 %description -n %libnamedev
@@ -83,32 +79,10 @@ uses 1/4 of the CPU time that the official BitTorrent client requires.
 The library and client are under heavy development. They are stable enough to
 handle any torrents I throw at them these days. 
 
-Authors:
---------
-    Jari Sundell <jaris@ifi.uio.no>
-
-%prep
-%autosetup -p1
-
-%build
-# GCC needed as of 0.14.0 and Clang 19.1.0. If compiled with Clang failed with:
-# configure: error: either specify a valid zlib installation with --with-zlib=DIR or disable zlib usage with --without-zlib
-export CC=gcc
-export CXX=g++
-autoreconf -fiv
-%configure --enable-ipv6 --with-posix-fallocate
-%make_build
-
-%install 
-%make_install
-  
 %files -n %{libname}
 %{_libdir}/lib*.so.%{major}*
 
 %files -n %{libnamedev}
 %{_libdir}/lib*.so
-%if %mdvver <= 201100
-%{_libdir}/lib*.la
-%endif
 %{_includedir}/torrent/
 %{_libdir}/pkgconfig/%{name}.pc
