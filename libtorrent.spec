@@ -5,8 +5,8 @@
 #define _disable_lto 1
 
 Name:		libtorrent
-Version:	0.16.10
-Release:	2
+Version:	0.16.16
+Release:	1
 Summary:	BitTorrent library written in C++ for *nix
 License:	GPLv2+
 Group:		Networking/File transfer
