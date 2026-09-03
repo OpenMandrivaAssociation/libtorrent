@@ -1,4 +1,4 @@
-%define major 49
+%define major 50
 %define oldlibname %mklibname torrent 40
 %define libname %mklibname torrent
 %define libnamedev %mklibname -d torrent
@@ -6,7 +6,7 @@
 #define _disable_lto 1
 
 Name:		libtorrent
-Version:	0.16.21
+Version:	0.16.22
 Release:	1
 Summary:	BitTorrent library written in C++ for *nix
 License:	GPLv2+
